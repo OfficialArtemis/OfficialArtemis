@@ -454,25 +454,25 @@ local function addLightingEffects()
 coroutine.wrap(function()
     local lighting = game:GetService("Lighting")
 
-    -- Добавляем BloomEffect
+    -- Add BloomEffect
     local bloom = lighting:FindFirstChildOfClass("BloomEffect") or Instance.new("BloomEffect", lighting)
     bloom.Intensity = 0.3 -- Интенсивность свечения
     bloom.Size = 40 -- Размер свечения
     bloom.Threshold = 0,05 -- Порог свечения
 
-    -- Добавляем ColorCorrectionEffect
+    -- Add ColorCorrectionEffect
     local colorCorrection = lighting:FindFirstChildOfClass("MainColorCorrectionEffect") or Instance.new("ColorCorrectionEffect", lighting)
     colorCorrection.TintColor = Color3.new(1, 0.9, 0.8) -- Тёплый оттенок
     colorCorrection.Brightness = 0.01 -- Небольшое повышение яркости
     colorCorrection.Contrast = 0.05 -- Лёгкое усиление контраста
     colorCorrection.Saturation = -0.1 -- Умеренная насыщенность
 
-    -- Добавляем BlurEffect (OxygenBlur)
+    -- Add BlurEffect (OxygenBlur)
     local blur = lighting:FindFirstChildOfClass("BlurEffect") or Instance.new("BlurEffect", lighting)
     blur.Name = "OxygenBlur" -- Уникальное имя
     blur.Size = 0 -- Лёгкое размытие
 
--- Создаём объект Sound
+-- Create object Sound
 local sound = Instance.new("Sound")
   
 -- Указываем параметры звука
@@ -509,7 +509,7 @@ game.DescendantAdded:Connect(function(descendant)
     end
 end)
 
--- Функция для изменения цвета и прозрачности объектов
+-- Function для изменения цвета и прозрачности объектов
 local function paintWallAndWallpaper(part)
     -- Проверяем, является ли объект Part и его имя "Wall"
     if part:IsA("BasePart") and part.Name == "Wall" then
@@ -530,12 +530,12 @@ for _, object in ipairs(workspace:GetDescendants()) do
     paintWallAndWallpaper(object)
 end
 
--- Реагируем на добавление новых объектов
+-- Реагируем for adding new objects 
 workspace.DescendantAdded:Connect(function(descendant)
     paintWallAndWallpaper(descendant)
 end)
 
--- Функция для обработки модели "Window_Tall"
+-- Function for обработки model "Window_Tall"
 local function processWindowTallModel(windowTallModel)
     -- Delete all sounds inside model
     for _, descendant in ipairs(windowTallModel:GetDescendants()) do

@@ -551,9 +551,628 @@ local function processWindowTallModel(windowTallModel)
         if skybox:IsA("MeshPart") then
             skybox.Color = Color3.fromRGB(86,86,92) -- Меняем цвет на красный
             print("Skybox (MeshPart) найден и цвет изменён на красный.")
-        -- If Skybox — it's Model, change colour all parts
+        -- Если Skybox — это Model, меняем цвет всех частей
         elseif skybox:IsA("Model") then
             for _, part in ipairs(skybox:GetDescendants()) do
                 if part:IsA("MeshPart") then
                     part.Color = Color3.fromRGB(86,86,92) -- Красим все MeshPart в красный цвет
-         
+                end
+            end
+            print("Skybox (Model) найден, цвет всех MeshPart изменён на красный.")
+        end
+    else
+        warn("Skybox не найден в модели Window_Tall.")
+    end
+ 
+    -- Ищем объект RainParticle и изменяем его параметры
+    local rainParticle = windowTallModel:FindFirstChild("RainParticle", true)
+    if rainParticle and rainParticle:IsA("ParticleEmitter") then
+        rainParticle.Texture = "rbxassetid://18448650142" -- Новый ID текстуры
+        rainParticle.Rate = 3 -- Изменяем Rate
+        rainParticle.Lifetime = NumberRange.new(10, 10) -- Устанавливаем Lifetime
+        rainParticle.Speed = NumberRange.new(3, 3) -- Устанавливаем Speed
+    end
+ 
+    -- Удаляем все остальные ParticleEmitter внутри модели
+    for _, descendant in ipairs(windowTallModel:GetDescendants()) do
+        if descendant:IsA("ParticleEmitter") and descendant.Name ~= "RainParticle" then
+            descendant:Destroy()
+        end
+    end
+end
+ 
+-- Основной скрипт для обработки всех моделей в CurrentRooms
+local currentRooms = workspace:FindFirstChild("CurrentRooms")
+if currentRooms and currentRooms:IsA("Folder") then
+    -- Обрабатываем все модели "Window_Tall" в папке CurrentRooms
+    for _, model in ipairs(currentRooms:GetDescendants()) do
+        if model:IsA("Model") and model.Name == "Window_Tall" then
+            processWindowTallModel(model)
+        end
+    end
+ 
+    -- Реагируем на новые объекты, добавленные в CurrentRooms
+    currentRooms.DescendantAdded:Connect(function(descendant)
+        if descendant:IsA("Model") and descendant.Name == "Window_Tall" then
+            processWindowTallModel(descendant)
+        end
+    end)
+else
+    warn("Папка CurrentRooms не найдена или не является папкой.")
+end
+ 
+-- Функция для обработки модели "Window"
+local function processWindowModel(windowModel)
+    -- Удаляем все звуки внутри модели
+    for _, descendant in ipairs(windowModel:GetDescendants()) do
+        if descendant:IsA("Sound") then
+            descendant:Destroy()
+        end
+    end
+ 
+    -- Ищем объект Skybox (Model или MeshPart) внутри модели Window
+    local skybox = windowModel:FindFirstChild("Skybox", true)
+    if skybox then
+        -- Если Skybox — это MeshPart, меняем его цвет
+        if skybox:IsA("MeshPart") then
+            skybox.Color = Color3.fromRGB(86,86,92) -- Меняем цвет на красный
+            print("Skybox (MeshPart) найден и цвет изменён на красный.")
+        -- Если Skybox — это Model, меняем цвет всех частей
+        elseif skybox:IsA("Model") then
+            for _, part in ipairs(skybox:GetDescendants()) do
+                if part:IsA("MeshPart") then
+                    part.Color = Color3.fromRGB(86,86,92) -- Красим все MeshPart в красный цвет
+                end
+            end
+            print("Skybox (Model) найден, цвет всех MeshPart изменён на красный.")
+        end
+    else
+        warn("Skybox не найден в модели Window.")
+    end
+ 
+    -- Ищем объект RainParticle и изменяем его параметры
+    local rainParticle = windowModel:FindFirstChild("RainParticle", true)
+    if rainParticle and rainParticle:IsA("ParticleEmitter") then
+        rainParticle.Texture = "rbxassetid://18448650142" -- Новый ID текстуры
+        rainParticle.Rate = 1.5 -- Изменяем Rate
+        rainParticle.Lifetime = NumberRange.new(6, 6) -- Устанавливаем Lifetime
+        rainParticle.Speed = NumberRange.new(1, 1) -- Устанавливаем Speed
+    end
+ 
+    -- Удаляем все остальные ParticleEmitter внутри модели
+    for _, descendant in ipairs(windowModel:GetDescendants()) do
+        if descendant:IsA("ParticleEmitter") and descendant.Name ~= "RainParticle" then
+            descendant:Destroy()
+        end
+    end
+end
+ 
+-- Основной скрипт для обработки всех моделей в CurrentRooms
+local currentRooms = workspace:FindFirstChild("CurrentRooms")
+if currentRooms and currentRooms:IsA("Folder") then
+    -- Обрабатываем все модели "Window" в папке CurrentRooms
+    for _, model in ipairs(currentRooms:GetDescendants()) do
+        if model:IsA("Model") and model.Name == "Window" then
+            processWindowModel(model)
+        end
+    end
+ 
+    -- Реагируем на новые объекты, добавленные в CurrentRooms
+    currentRooms.DescendantAdded:Connect(function(descendant)
+        if descendant:IsA("Model") and descendant.Name == "Window" then
+            processWindowModel(descendant)
+        end
+    end)
+else
+    warn("Папка CurrentRooms не найдена или не является папкой.")
+end
+ 
+wait(2)
+-- Функция для обработки модели "Window"
+local function processWindowModel(windowModel)
+    -- Удаляем все звуки внутри модели
+    for _, descendant in ipairs(windowModel:GetDescendants()) do
+        if descendant:IsA("Sound") then
+            descendant:Destroy()
+        end
+    end
+ 
+    -- Ищем объект Skybox (Model или MeshPart) внутри модели Window
+    local skybox = windowModel:FindFirstChild("Skybox", true)
+    if skybox then
+        -- Если Skybox — это MeshPart, меняем его цвет
+        if skybox:IsA("MeshPart") then
+            skybox.Color = Color3.fromRGB(86,86,92) -- Меняем цвет на красный
+            print("Skybox (MeshPart) найден и цвет изменён на красный.")
+        -- Если Skybox — это Model, меняем цвет всех частей
+        elseif skybox:IsA("Model") then
+            for _, part in ipairs(skybox:GetDescendants()) do
+                if part:IsA("MeshPart") then
+                    part.Color = Color3.fromRGB(86,86,92) -- Красим все MeshPart в красный цвет
+                end
+            end
+            print("Skybox (Model) найден, цвет всех MeshPart изменён на красный.")
+        end
+    else
+        warn("Skybox не найден в модели Window.")
+    end
+ 
+    -- Ищем объект RainParticle и изменяем его параметры
+    local rainParticle = windowModel:FindFirstChild("RainParticle", true)
+    if rainParticle and rainParticle:IsA("ParticleEmitter") then
+        rainParticle.Texture = "rbxassetid://18448650142" -- Новый ID текстуры
+        rainParticle.Rate = 1.5 -- Изменяем Rate
+        rainParticle.Lifetime = NumberRange.new(6, 6) -- Устанавливаем Lifetime
+        rainParticle.Speed = NumberRange.new(1, 1) -- Устанавливаем Speed
+    end
+ 
+    -- Удаляем все остальные ParticleEmitter внутри модели
+    for _, descendant in ipairs(windowModel:GetDescendants()) do
+        if descendant:IsA("ParticleEmitter") and descendant.Name ~= "RainParticle" then
+            descendant:Destroy()
+        end
+    end
+end
+ 
+local currentRooms = workspace:FindFirstChild("CurrentRooms")
+if currentRooms and currentRooms:IsA("Folder") then
+    for _, model in ipairs(currentRooms:GetDescendants()) do
+        if model:IsA("Model") and model.Name == "Window" then
+            processWindowModel(model)
+        end
+    end
+ 
+    currentRooms.DescendantAdded:Connect(function(descendant)
+        if descendant:IsA("Model") and descendant.Name == "Window" then
+            processWindowModel(descendant)
+        end
+    end)
+else
+    warn("Folder CurrentRooms not found")
+end
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+ 
+    blur:Destroy()
+ 
+    colorCorrection:Destroy()
+ 
+bloom:Destroy()
+ 
+sound:Destroy()
+end)()
+end
+ 
+-- Применяем эффекты
+addLightingEffects()
+ 
+end
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+if game.ReplicatedStorage:FindFirstChild("LiveModifiers"):FindFirstChild("PlayerFast") then
+ 
+game.Players.LocalPlayer.Character:SetAttribute("SpeedBoostExtra", -2.5)
+ 
+elseif game.ReplicatedStorage:FindFirstChild("LiveModifiers"):FindFirstChild("PlayerFaster") then
+ 
+game.Players.LocalPlayer.Character:SetAttribute("SpeedBoostExtra", -7.5)
+ 
+elseif game.ReplicatedStorage:FindFirstChild("LiveModifiers"):FindFirstChild("PlayerFastest") then
+ 
+game.Players.LocalPlayer.Character:SetAttribute("SpeedBoostExtra", -20)
+ 
+end
+ 
+end
+ 
+end
+ 
+-- speed sprint (new button)
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/hsHaCG1a"))()
+ 
+elseif workspace:FindFirstChild("Dread") then
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/TiVM7MY9"))()
+ 
+end
+ 
+-- achievement who using in this mode
+ 
+local giveAchievement = true
+ 
+if table.find(playerId, game.Players.LocalPlayer.UserId) then
+ 
+giveAchievement = false
+ 
+elseif giveAchievement then
+ 
+print("Soon")
+ 
+end
+ 
+-- echo sound (background echo effects)
+ 
+game.SoundService.AmbientReverb = "ConcertHall"
+ 
+-- creating fog
+ 
+local Lighting = game:GetService("Lighting")
+Lighting.Ambient = Color3.new(0, 0, 0)
+Lighting.Brightness = 0.1
+Lighting.FogEnd = 100
+Lighting.FogStart = 1
+Lighting.FogColor = Color3.new(0, 0, 0)
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['LightsDestroy'].CurrentValue == true and game.ReplicatedStorage.GameData.LatestRoom.Value == 1 or Rayfield.Flags['LightsDestroy'].CurrentValue == false and game.ReplicatedStorage.GameData.LatestRoom.Value == 51 then
+ 
+game.TweenService:Create(Lighting.CaveAtmosphere, TweenInfo.new(3), {Color = Color3.new(0, 0, 0)}):Play()
+ 
+wait(1.9)
+ 
+game:GetService("RunService").RenderStepped:Connect(function()
+ 
+if Lighting.CaveAtmosphere.Color == Color3.new(-200, -200, -200) then
+ 
+Lighting.CaveAtmosphere.Color = Color3.new(0, 0, 0)
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+-- custom crucifix can spawn in table/locker_small/dressers/dresser_single/other
+ 
+if tools then
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/F2e4mPcS"))()
+ 
+end
+ 
+-- fireplace brightness even more
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+    wait(0.0005)
+ 
+if game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets:FindFirstChild("Fireplace") then
+ 
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets.Fireplace.Fireplace_Logs.Log.FireLight.Brightness = 25
+ 
+end
+ 
+end)
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+    wait(0.0005)
+ 
+if game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets:FindFirstChild("FireBarrel") then
+ 
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets.FireBarrel.Trash.Attachment.FireLight.Brightness = 25
+ 
+end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- gc yo-ho
+ 
+local grabbing = false
+ 
+if table.find(playerId, game.Players.LocalPlayer.UserId) then
+ 
+grabbing = true
+ 
+end
+ 
+if grabbing and tools then
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/AE5vfFMX"))() -- spawn in mines, it's can spawn in hotel if you grabbed
+ 
+end
+ 
+-- possessed candle adding esp to see some things for easier
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+function selection(lightening)
+	local highlight = Instance.new("Highlight")
+	highlight.Adornee = lightening
+	highlight.OutlineColor = Color3.fromRGB(0, 205, 255)
+	highlight.FillColor = Color3.fromRGB(0, 205, 255)
+	highlight.Parent = lightening
+	if lightening:IsA("BasePart") then
+		lightening.Color = Color3.fromRGB(0, 205, 255)
+		lightening.Transparency = 0
+	end
+end
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+    if workspace[game.Players.LocalPlayer.Name]:FindFirstChild("RiftCandle") or game.Players.LocalPlayer.Backpack:FindFirstChild("RiftCandle") then
+        for _, v in pairs(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:GetDescendants()) do
+	        if v.Name == "KeyObtain" then
+		        selection(v)
+	        elseif v.Name == "FuseObtain" then
+		        selection(v)
+	        elseif v.Name == "LeverForGate" then
+		        selection(v)
+	        elseif v.Name == "MinesGenerator" then
+		        selection(v)
+	        elseif v.Name == "MinesGateButton" then
+		        selection(v)
+	        elseif v.Name == "ChestBox" then
+		        selection(v)
+	        elseif v.Name == "ChestBoxLocked" then
+		        selection(v)
+	        elseif v.Name == "Toolshed_Small" then
+		        selection(v)
+	        elseif v.Name == "Chest_Vine" then
+		        selection(v)
+	        elseif v.Name == "LiveHintBook" then
+		        selection(v)
+	        elseif v.Name == "ElevatorKeyObtain" then
+		        selection(v)
+	        elseif v.Name == "LiveBreakerPolePickup" then
+		        selection(v)
+	        elseif v.Name == "WaterPump" then
+		        selection(v)
+	        end
+        end
+     end
+end)
+ 
+--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- confusion sound
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Effects.Confusion:GetPropertyChangedSignal("Visible"):Connect(function()
+ 
+if game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Effects.Confusion.Visible == true then
+ 
+local confusion = Instance.new("Sound", workspace)
+confusion.SoundId = "rbxassetid://5689199277"
+confusion.Volume = 5
+confusion:Play()
+wait(2)
+confusion:Destroy()
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end
+ 
+-- the lights destroyers
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['LightsDestroy'].CurrentValue == true and game.ReplicatedStorage.GameData.LatestRoom.Value == 1 or Rayfield.Flags['LightsDestroy'].CurrentValue == false and game.ReplicatedStorage.GameData.LatestRoom.Value == 51 then
+ 
+print("The lights working broke")
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+    wait(0.0005)
+ 
+if workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)].Assets:FindFirstChild("Light_Fixtures") then
+ 
+workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)].Assets.Light_Fixtures:Destroy()
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- rugs destroyers (idk)
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['LightsDestroy'].CurrentValue == true and game.ReplicatedStorage.GameData.LatestRoom.Value == 1 or Rayfield.Flags['LightsDestroy'].CurrentValue == false and game.ReplicatedStorage.GameData.LatestRoom.Value == 51 then
+ 
+print("The lights working broke")
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+    wait(0.0005)
+ 
+for _, v in pairs(workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)].Assets:GetDescendants()) do
+ 
+if v.Name == "Rug" then
+ 
+v:Destroy()
+ 
+end
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- chandeliers destroyers
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['LightsDestroy'].CurrentValue == true and game.ReplicatedStorage.GameData.LatestRoom.Value == 1 or Rayfield.Flags['LightsDestroy'].CurrentValue == false and game.ReplicatedStorage.GameData.LatestRoom.Value == 51 then
+ 
+print("The lights working broke")
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+    wait(0.0005)
+ 
+for _, v in pairs(workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)].Assets:GetDescendants()) do
+ 
+if v.Name == "Chandelier" then
+ 
+v:Destroy()
+ 
+end
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- chat for the lights destroying
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['LightsDestroy'].CurrentValue == true and game.ReplicatedStorage.GameData.LatestRoom.Value == 3 or Rayfield.Flags['LightsDestroy'].CurrentValue == false and game.ReplicatedStorage.GameData.LatestRoom.Value == 53 then
+ 
+game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("The lights has been destroys now!")
+ 
+wait(10)
+ 
+local horror_audio = Instance.new("Sound", workspace)
+ horror_audio.Name = "Horror_Audio"
+ horror_audio.SoundId = "rbxassetid://172313730"
+ horror_audio.Volume = 1
+ horror_audio.Looped = true
+ horror_audio:Play()
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- door new materials
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['DoorMaterial'].CurrentValue then
+ 
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Material

@@ -1175,7 +1175,752 @@ game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
  
 if Rayfield.Flags['DoorMaterial'].CurrentValue then
  
-game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Material
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Material = "Leather"
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Sign.Material = "Marble"
+ 
+end
+ 
+end)
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['DoorMaterial'].CurrentValue then
+ 
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Material = "Marble"
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.SignPlate.Material = "Rock"
+ 
+end
+ 
+end)
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['DoorMaterial'].CurrentValue then
+ 
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Material = "Rock"
+ 
+end
+ 
+end)
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['DoorMaterial'].CurrentValue then
+ 
+if game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Open.SoundId == "rbxassetid://11447013731" or game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Open.SoundId == "rbxassetid://6058561902" then
+ 
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Material = "Leather"
+game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Door.Door.Sign.Material = "Marble"
+ 
+end
+ 
+end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- key obtain new click sound
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/b1cQKBB2"))()
+ 
+-- gold pile new spawn sound
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/DsS87QeW"))()
+ 
+-- garden gate setup new sounds
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/nQ16CpCt"))()
+ 
+-- new the lights bulb sounds
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.Sounds.BulbCharge:GetPropertyChangedSignal("SoundId"):Connect(function()
+ 
+if game.ReplicatedStorage.Sounds.BulbCharge.SoundId == "rbxassetid://11460001697" then
+ 
+game.ReplicatedStorage.Sounds.BulbCharge.SoundId = "rbxassetid://9125973984"
+ 
+end
+ 
+end)
+ 
+game.ReplicatedStorage.Sounds.BulbZap:GetPropertyChangedSignal("SoundId"):Connect(function()
+ 
+if game.ReplicatedStorage.Sounds.BulbZap.SoundId == "rbxassetid://8829969521" then
+ 
+game.ReplicatedStorage.Sounds.BulbZap.SoundId = "rbxassetid://4288784832"
+ 
+end
+ 
+end)
+ 
+game.ReplicatedStorage.Sounds.BulbBreak:GetPropertyChangedSignal("SoundId"):Connect(function()
+ 
+if game.ReplicatedStorage.Sounds.BulbBreak.SoundId == "rbxassetid://8828938165" then
+ 
+game.ReplicatedStorage.Sounds.BulbBreak.SoundId = "rbxassetid://6737582273"
+ 
+end
+ 
+end)
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" then
+ 
+game.ReplicatedStorage.Sounds.BulbZap:GetPropertyChangedSignal("SoundId"):Connect(function()
+ 
+if game.ReplicatedStorage.Sounds.BulbZap.SoundId == "rbxassetid://8829969521" then
+ 
+game.ReplicatedStorage.Sounds.BulbZap.SoundId = "rbxassetid://5857559198"
+ 
+end
+ 
+end)
+ 
+game.ReplicatedStorage.Sounds.BulbBreak:GetPropertyChangedSignal("SoundId"):Connect(function()
+ 
+if game.ReplicatedStorage.Sounds.BulbBreak.SoundId == "rbxassetid://8828938165" then
+ 
+game.ReplicatedStorage.Sounds.BulbBreak.SoundId = "rbxassetid://260496290"
+ 
+end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- timothy new jumpscare sound
+ 
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.SpiderJumpscare.Scare.SoundId = "rbxassetid://7147349812"
+ 
+-- hide monster release scare
+ 
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.HideMonster.Scare.SoundId = "rbxassetid://9126213765"
+ 
+-- goofy darkness
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.Workspace.Ambience_Dark.SoundId = "rbxassetid://6535784827"
+game.Workspace.Ambience_Dark.PlaybackSpeed = 1
+ 
+elseif workspace:FindFirstChild("Dread") then
+ 
+game.Workspace.Ambience_Dark.PlaybackSpeed = 2
+ 
+end
+ 
+-- WOW
+ 
+local DeathNew = "rbxassetid://132108923310487"
+ 
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.Health.Death.SoundId = DeathNew
+ 
+if game.TextChatService:FindFirstChild("TextChannels") then
+ 
+game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("You can finally open the door!")
+ 
+end
+ 
+kickplr = false
+ 
+-- Node's Fixings
+ 
+coroutine.wrap(function()
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game:GetService("ReplicatedStorage").GameData.LatestRoom.Changed:Connect(function(v)
+ 
+   W = game:GetService("Workspace").CurrentRooms[v].PathfindNodes:Clone()
+ 
+W.Parent = game:GetService("Workspace").CurrentRooms[v]
+ 
+W.Name = 'Nodes'
+ 
+end)
+ 
+--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- gloom
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['LightsDestroy'].CurrentValue == true and game.ReplicatedStorage.GameData.LatestRoom.Value == 1 or Rayfield.Flags['LightsDestroy'].CurrentValue == false and game.ReplicatedStorage.GameData.LatestRoom.Value == 51 then
+ 
+while true do
+ 
+local sctm = math.random(45,90)
+ 
+wait(sctm)
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/w56PEvcG"))()
+ 
+print("hello!")
+ 
+end
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- fatality (no way)
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if Rayfield.Flags['LightsDestroy'].CurrentValue == true and game.ReplicatedStorage.GameData.LatestRoom.Value == 1 or Rayfield.Flags['LightsDestroy'].CurrentValue == false and game.ReplicatedStorage.GameData.LatestRoom.Value == 51 then
+ 
+while true do
+ 
+local sctm = math.random(405,500)
+ 
+wait(sctm)
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/Z6PdkGYA"))()
+ 
+print("fatalties shake!")
+ 
+end
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- caption for clicking fireplace and barrel & new cool item
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+for _, v in next, game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets:GetDescendants() do
+ 
+    if v.Name == "Fireplace_Logs" and v.Parent.Name == "Fireplace" then
+ 
+        local a = v:Clone()
+ 
+              a.Parent = v.Parent
+ 
+              local b = a.ToolEventPrompt
+ 
+if workspace[game.Players.LocalPlayer.Name]:FindFirstChild("PurpleFlashlight") or game.Players.LocalPlayer.Backpack:FindFirstChild("PurpleFlashlight") then
+ 
+b:Destroy()
+ 
+end
+ 
+b.Triggered:Connect(function()
+ 
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 232, 0)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('Why do you want to clicking fireplace?',true)
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 222, 189)
+ 
+local spawningchance = math.random(670, 870)
+ 
+if spawningchance == 670 or game.ReplicatedStorage:WaitForChild("LiveModifiers"):FindFirstChild("BackdoorHaste") and spawningchance == 870 then
+ 
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 0, 202)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('Done and every room',true)
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 222, 189)
+ 
+b:Destroy()
+ 
+for _, child in next, workspace.CurrentRooms:GetDescendants() do
+ 
+if child.Name == "ToolEventPrompt" and not game.ReplicatedStorage.GameData.LatestRoom.Value == game.ReplicatedStorage.GameData.LatestRoom.Value then
+ 
+child:Destroy()
+ 
+end
+ 
+end
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/b7J6gRmE"))()
+ 
+writefile("Forgotten Mode Saves.artemis", "a4MYX87FzPxmx2MR6")
+ 
+end
+ 
+end)
+ 
+        v:Destroy()
+ 
+end
+ 
+    end
+ 
+ 
+ 
+end)
+ 
+--
+ 
+end
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+ 
+if isfile("Forgotten Mode Saves.artemis") then
+ 
+local pass = readfile("Forgotten Mode Saves.artemis")
+ 
+if pass == "a4MYX87FzPxmx2MR6" then
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/b7J6gRmE"))()
+ 
+end
+ 
+end
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+for _, v in next, game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets:GetDescendants() do
+ 
+    if v:IsA("BasePart") and v.Name == "Planks" and v.Parent.Name == "FireBarrel" then
+ 
+        local a = v:Clone()
+ 
+              a.Parent = v.Parent
+ 
+              local b = a.ToolEventPrompt
+ 
+b.Triggered:Connect(function()
+ 
+if workspace[game.Players.LocalPlayer.Name]:FindFirstChild("PurpleFlashlight") or game.Players.LocalPlayer.Backpack:FindFirstChild("PurpleFlashlight") then
+ 
+b:Destroy()
+ 
+end
+ 
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 232, 0)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('Why do you want to clicking barrel?',true)
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 222, 189)
+ 
+local spawningchance = math.random(670, 870)
+ 
+if spawningchance == 670 or game.ReplicatedStorage:WaitForChild("LiveModifiers"):FindFirstChild("BackdoorHaste") and spawningchance == 870 then
+ 
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 0, 202)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('Done and every room',true)
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 222, 189)
+ 
+b:Destroy()
+ 
+for _, child in next, workspace.CurrentRooms:GetDescendants() do
+ 
+if child.Name == "ToolEventPrompt" and not game.ReplicatedStorage.GameData.LatestRoom.Value == game.ReplicatedStorage.GameData.LatestRoom.Value then
+ 
+child:Destroy()
+ 
+end
+ 
+end
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/b7J6gRmE"))()
+ 
+end
+ 
+spawningchance:Destroy()
+ 
+end)
+ 
+        v:Destroy()
+ 
+end
+ 
+    end
+ 
+ 
+ 
+end)
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" then
+ 
+if isfile("Forgotten Mode Saves.artemis") then
+ 
+local pass = readfile("Forgotten Mode Saves.artemis")
+ 
+if pass == "a4MYX87FzPxmx2MR6" then
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/b7J6gRmE"))()
+ 
+end
+ 
+end
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- custom door sounds
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/gxKdB7VD"))()
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+ 
+-- audio lol
+ 
+coroutine.wrap(function()
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+if game.ReplicatedStorage:FindFirstChild("LiveModifiers"):FindFirstChild("TrickOrTreat") and game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
+ 
+while true do
+ 
+local sctm = math.random(10, 200)
+ 
+wait(sctm)
+ 
+local idk = Instance.new("Sound", workspace)
+ idk.SoundId = "rbxasetid://125667882620129"
+ idk:Play()
+ wait(5)
+ idk:Destroy()
+ 
+end
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- blitz
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Garden" or  game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+if Rayfield.Flags['Blitzkrieg'].CurrentValue then
+ 
+while true do
+ 
+wait(180)
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/55FHM09b"))()
+ 
+end
+ 
+end
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- new entity
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Party" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+if Rayfield.Flags['Alma'].CurrentValue then
+ 
+while true do
+ 
+local sctm = math.random(112,304)
+ 
+wait(sctm)
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+ 
+wait(0.7)
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/GZ1Cn6Z8"))()
+ 
+end
+ 
+end
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- eyes nightmare in one room
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+if Rayfield.Flags['ColorEntities'].CurrentValue then
+ 
+workspace.ChildAdded:Connect(function(eyesinroom)
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+game.Players.LocalPlayer.PlayerGui.MainUI.Jumpscare.Jumpscare_Eyes.BackgroundColor3 = Color3.fromRGB(255, 0, 55)
+ 
+end
+ 
+    if eyesinroom.Name == "Eyes" then
+ 
+    wait(1)
+ 
+eyesinroom.Core.Attachment.EyesParticle.Color = ColorSequence.new({
+ 
+            ColorSequenceKeypoint.new(0, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(0.305881, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(0.305881, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(1, Color3.new(1, 0.305881, 0.305881)),
+ 
+        })
+ 
+		--
+ 
+eyesinroom.Core.Ambience.PlaybackSpeed = 0.9
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+for _, v in next, eyesinroom.Core:GetDescendants() do
+ 
+    if v.Name == "PointLight" then
+ 
+v.Color = Color3.fromRGB(148, 0, 17)
+ 
+    end
+ 
+end
+ 
+eyesinroom.Core.Initiate.PlaybackSpeed = 0.5
+ 
+eyesinroom.Core.Attack.PlaybackSpeed = 1.5
+ 
+end
+ 
+    end
+ 
+end)
+ 
+--
+ 
+end
+ 
+elseif workspace:FindFirstChild("Dread") then
+ 
+if Rayfield.Flags['ColorEntities'].CurrentValue then
+ 
+workspace.ChildAdded:Connect(function(eyesinroom)
+ 
+    if eyesinroom.Name == "Lookman" then
+ 
+    wait(1)
+ 
+for _, eyesspawn in next, eyesinroom.Core.Attachment:GetDescendants() do 
+ 
+if eyesspawn.Name == "Eyes" then 
+ 
+eyesspawn.Color = ColorSequence.new({
+ 
+            ColorSequenceKeypoint.new(0, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(0.305881, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(0.305881, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(1, Color3.new(1, 0.305881, 0.305881)),
+ 
+        })
+ 
+		--
+ 
+end
+ 
+end
+ 
+eyesinroom.Core.Ambience.PlaybackSpeed = 0.9
+ 
+    end
+ 
+end)
+ 
+--
+ 
+end
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" then
+ 
+if Rayfield.Flags['ColorEntities'].CurrentValue then
+ 
+workspace.ChildAdded:Connect(function(eyesinroom)
+ 
+game.Players.LocalPlayer.PlayerGui.MainUI.Jumpscare.Jumpscare_Eyes.BackgroundColor3 = Color3.fromRGB(255, 0, 55)
+ 
+    if eyesinroom.Name == "Eyes" then
+ 
+    wait(1)
+ 
+eyesinroom.Core.Attachment.ParticleEmitter.Color = ColorSequence.new({
+ 
+            ColorSequenceKeypoint.new(0, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(0.305881, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(0.305881, Color3.new(1, 0.305881, 0.305881)),
+ 
+            ColorSequenceKeypoint.new(1, Color3.new(1, 0.305881, 0.305881)),
+ 
+        })
+ 
+		--
+ 
+eyesinroom.Core.Ambience.PlaybackSpeed = 0.9
+ 
+for _, v in next, eyesinroom.Core:GetDescendants() do
+ 
+    if v.Name == "PointLight" then
+ 
+v.Color = Color3.fromRGB(148, 0, 17)
+ 
+    end
+ 
+end
+ 
+    end
+ 
+end)
+ 
+--
+ 
+end
+ 
+--[[ ]]--
+ 
+end
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- release screech
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Halloween25" then
+ 
+if not workspace:FindFirstChild("Dread") then
+ 
+if Rayfield.Flags['ColorEntities'].CurrentValue then
+ 
+game.ReplicatedStorage.Entities.Screech.Top.Eyes.Color = Color3.fromRGB(255, 255, 0)
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.Caught.SoundId = "rbxassetid://7492033495"
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.Caught.PlaybackSpeed = 1.6
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" then
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.CaughtFools.SoundId = "rbxassetid://102630287147529"
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.CaughtFools.PlaybackSpeed = 2
+end
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech.Attack.SoundId = "rbxassetid://8080941676"
+ 
+end
+ 
+end
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- rush & ambush nightmare
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").
 
 -- painting flowers
  

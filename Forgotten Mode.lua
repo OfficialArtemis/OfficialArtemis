@@ -1928,4 +1928,233 @@ game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
  
 if game.ReplicatedStorage.GameData.LatestRoom.Value == 61 then
  
+loadstring(game:HttpGet("https://pastebin.com/raw/pm2GUxHV"))()
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- blood rush (only mines)
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if game.ReplicatedStorage.GameData.LatestRoom.Value == 100 then
+ 
+--[[ monster goes waiting spawn ]]--
+ 
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('Wait few seconds to spawn entity, so be careful!',true)
+wait(10)
+loadstring(game:HttpGet("https://pastebin.com/raw/5Pg3CV3U"))()
+ 
+end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- Claim
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" then
+        game.ReplicatedStorage.GameData.LatestRoom.Changed: Connect(function()
+ 
+local spawn_chance = math.random(70, 140)
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+ 
+if game.Workspace:FindFirstChild("SeekMovingNewClone") or game.Workspace:FindFirstChild("SeekMoving") or game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:FindFirstChild("FigureSetup") or game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:FindFirstChild("_NestHandler") or game.ReplicatedStorage.GameData.LatestRoom.Value == 51 or game.ReplicatedStorage.GameData.LatestRoom.Value == 52 or game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets:FindFirstChild("ShopProps") or game.ReplicatedStorage.GameData.LatestRoom.Value == 90 or game.ReplicatedStorage.GameData.LatestRoom.Value == 91 or game.ReplicatedStorage.GameData.LatestRoom.Value == 92 or game.ReplicatedStorage.GameData.LatestRoom.Value == 93 or game.ReplicatedStorage.GameData.LatestRoom.Value ==  94 or game.ReplicatedStorage.GameData.LatestRoom.Value ==  95 or game.ReplicatedStorage.GameData.LatestRoom.Value == 96 or game.ReplicatedStorage.GameData.LatestRoom.Value == 97 or game.ReplicatedStorage.GameData.LatestRoom.Value == 98 or game.ReplicatedStorage.GameData.LatestRoom.Value == 99 or game.ReplicatedStorage.GameData.LatestRoom.Value == 100 then
+	return
+end
+ 
+end
+ 
+if spawn_chance == 70 then
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/d3R357Rk"))()
+ 
+end
+ 
+end)
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed: Connect(function()
+ 
+wait(1.4)
+ 
+if game.Workspace:FindFirstChild("Bubbles") then
+ 
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('Are you shy?',true)
+ 
+end
+ 
+end)
+ 
+workspace.ChildAdded:Connect(function(child)
+ 
+if child.Name == "Claim" then
+ 
+for _, v in pairs(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:GetDescendants()) do
+ 
+if v.Name == "Neon" then
+ 
+v.Color = Color3.fromRGB(255, 0, 0)
+ 
+elseif v.Name == "PointLight" then
+ 
+v.Color = Color3.fromRGB(255, 0, 0)
+ 
+elseif v.Name == "SpotLight" then
+ 
+v.Color = Color3.fromRGB(255, 0, 0)
+ 
+end
+ 
+end
+ 
+end
+ 
+end)
+ 
+elseif game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Backdoor" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Rooms" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" then
+ 
+print("Multiple eye custom entity doesn't work in fools")
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- Phil
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed: Connect(function()
+ 
+local spawn_chance = math.random(70, 140)
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Hotel" or game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+ 
+if game.Workspace:FindFirstChild("SeekMovingNewClone") or game.Workspace:FindFirstChild("SeekMoving") or game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:FindFirstChild("FigureSetup") or game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:FindFirstChild("_NestHandler") or game.ReplicatedStorage.GameData.LatestRoom.Value == 51 or game.ReplicatedStorage.GameData.LatestRoom.Value == 52 or game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets:FindFirstChild("ShopProps") or game.ReplicatedStorage.GameData.LatestRoom.Value == 90 or game.ReplicatedStorage.GameData.LatestRoom.Value == 91 or game.ReplicatedStorage.GameData.LatestRoom.Value == 92 or game.ReplicatedStorage.GameData.LatestRoom.Value == 93 or game.ReplicatedStorage.GameData.LatestRoom.Value ==  94 or game.ReplicatedStorage.GameData.LatestRoom.Value ==  95 or game.ReplicatedStorage.GameData.LatestRoom.Value == 96 or game.ReplicatedStorage.GameData.LatestRoom.Value == 97 or game.ReplicatedStorage.GameData.LatestRoom.Value == 98 or game.ReplicatedStorage.GameData.LatestRoom.Value == 99 or game.ReplicatedStorage.GameData.LatestRoom.Value == 100 then
+	return
+end
+ 
+end
+ 
+if spawn_chance == 140 then
+ 
+local spawners_chance = math.random(1, 1750)
+ 
+loadstring(game:HttpGet("https://pastebin.com/raw/JLFyvnp2"))()
+ 
+end
+ 
+end)
+ 
+workspace.ChildAdded:Connect(function(child)
+ 
+if child.Name == "PhilBad" then
+ 
+wait(1)
+ 
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('What the happened?!!!',true)
+ 
+end
+ 
+end)
+ 
+--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- seek eyes
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if game.ReplicatedStorage.GameData.LatestRoom.Value == 49 or game.ReplicatedStorage.GameData.LatestRoom.Value == 90 or game.ReplicatedStorage.GameData.LatestRoom.Value == 91 or game.ReplicatedStorage.GameData.LatestRoom.Value == 92 or game.ReplicatedStorage.GameData.LatestRoom.Value == 93 or game.ReplicatedStorage.GameData.LatestRoom.Value == 94 or game.ReplicatedStorage.GameData.LatestRoom.Value == 95 or game.ReplicatedStorage.GameData.LatestRoom.Value == 96 or game.ReplicatedStorage.GameData.LatestRoom.Value == 97 then
+ 
+    wait(3)
+ 
+local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
+require(game.ReplicatedStorage.ClientModules.EntityModules.Seek).tease(nil, workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], 100)
+ 
+    end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+-- seek eyes 2
+ 
+coroutine.wrap(function()
+ 
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Fools" then
+ 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+ 
+if game.ReplicatedStorage.GameData.LatestRoom.Value == 50 then
+ 
+    wait(7)
+ 
+local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
+require(game.ReplicatedStorage.ClientModules.EntityModules.Seek).tease(nil, workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], 100)
+ 
+    end
+ 
+end)
+ 
+--[[ ]]--
+ 
+end
+ 
+end)()
+ 
+--
+ 
+--
+ 
+--
+ 
+elseif loader == false then
+ 
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 0, 0)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption('Forgotten Mode script has been failed on launch',true)
+game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption.TextColor3 = Color3.fromRGB(255, 222, 189)
 
+end

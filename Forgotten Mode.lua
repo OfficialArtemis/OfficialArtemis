@@ -3207,7 +3207,8 @@ end)()
 coroutine.wrap(function()
  
 if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Retro" then
-        game.ReplicatedStorage.GameData.LatestRoom.Changed: Connect(function()
+
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
  
 local spawn_chance = math.random(70, 140)
  
@@ -3221,7 +3222,99 @@ end
  
 if spawn_chance == 70 then
  
-loadstring(game:HttpGet("https://pastebin.com/raw/d3R357Rk"))()
+local currentLoadedRoom=workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value]
+local eyes=game:GetObjects("rbxassetid://11411321855")[1]
+ 
+local num=0
+
+if currentLoadedRoom:FindFirstChild("Nodes") then
+   num = math.floor(#currentLoadedRoom.Nodes:GetChildren()/2)
+end
+
+eyes.RushNew.CFrame=(
+	num==0 and currentLoadedRoom[currentLoadedRoom.Name] or currentLoadedRoom.Nodes[num]
+).CFrame+Vector3.new(0,5,0)
+
+eyes.Parent=workspace
+				--------------
+				local function canSeeTarget(target,size)
+					if killed == true then
+						return
+					end
+					local origin = eyes.RushNew.Position
+					local direction = (target.HumanoidRootPart.Position - eyes.RushNew.Position).unit * size
+					local ray = Ray.new(origin, direction)
+
+					local hit, pos = workspace:FindPartOnRay(ray, eyes.RushNew)
+
+
+					if hit then
+						if hit:IsDescendantOf(target) then
+							killed = true
+							return true
+						end
+					else
+						return false
+					end
+				end
+local particle = eyes.RushNew.Attachment
+particle.ParticleEmitter.Enabled = false
+particle.Spark.Enabled = false
+    local death = Instance.new("Sound")
+    death.Parent = workspace
+    death.Name = "die"
+    death.SoundId = "rbxassetid://5867708670"
+    death.Volume = 0.7
+    death.Pitch = 1
+    local distort = Instance.new("DistortionSoundEffect")
+    distort.Level = 0.9
+    distort.Parent = death
+    local cue = Instance.new("Sound")
+    cue.Parent = workspace
+    cue.Name = "Bubbles"
+    cue.SoundId = "rbxassetid://9113601215"
+    cue.Volume = 1
+    cue.Pitch = 0.6
+    local distort = Instance.new("DistortionSoundEffect")
+    distort.Level = 0.7
+    distort.Parent = cue
+    cue.TimePosition = 1.25
+wait(0.5)
+particle.Spark.Enabled = true
+cue:Play()
+    wait(2)
+				-------------------------
+				--_SHAKER DO NOT MOD IFY
+				spawn(function()
+					while eyes ~= nil do wait(0.2)
+						local v = game.Players.LocalPlayer
+						local parent = script.Parent
+						if v.Character ~= nil and not v.Character:GetAttribute("Hiding") then
+							if canSeeTarget(v.Character,50) then
+								v.Character:FindFirstChildWhichIsA("Humanoid"):TakeDamage(100)
+				game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Claim"
+				death:Play()
+				local speaker = game.Players.LocalPlayer.Character
+		for i,v in pairs(speaker:GetChildren()) do
+			if v:IsA("BasePart") and
+				v.Name == "Head" or
+				v.Name == "RightUpperLeg" or
+				v.Name == "LeftUpperLeg" or
+				v.Name == "RightUpperArm" or
+				v.Name == "LeftUpperArm" or
+				v.Name == "RightLowerLeg" or
+				v.Name == "LeftLowerLeg" or
+				v.Name == "RightLowerArm" or
+				v.Name == "LeftLowerArm" or
+				v.Name == "RightFoot" or
+				v.Name == "LeftFoot" or
+				v.Name == "RightHand" or
+				v.Name == "LeftHand" or
+				v.Name == "UpperTorso" or
+				v.Name == "LowerTorso" then
+				v:Destroy()
+			end
+		end
  
 end
  
